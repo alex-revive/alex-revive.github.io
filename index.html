@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revive | Engineering Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #009C43;
+            --text-grey: #3C3C3B;
+            --border-light: rgba(178, 178, 178, 0.4);
+            --bg-slate: #f4f4f4; /* Фон, який видно в проміжках */
+            --glass-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-slate);
+            padding: 24px; /* Зовнішній відступ для ефекту плаваючого сайту */
+            color: var(--text-grey);
+        }
+
+        /* Основний контейнер сайту - Canvas */
+        .site-canvas {
+            background: white;
+            border-radius: 40px;
+            min-height: 200vh; /* Щоб була прокрутка для тестування хедеру */
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        /*--- HEADER / NAVIGATION ---*/
+        .header-wrapper {
+            position: fixed;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 100px);
+            max-width: 1200px;
+            z-index: 1000;
+        }
+
+        header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-light);
+            border-radius: 100px; /* Pill shape */
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+
+        .logo img {
+            height: 35px;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-grey);
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-link:hover { opacity: 0.7; }
+
+        /* Dropdown styling */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: var(--text-grey);
+            font-size: 13px;
+            border-radius: 10px;
+        }
+
+        .dropdown a:hover {
+            background: var(--bg-slate);
+            color: var(--primary-green);
+        }
+
+        .cta-button {
+            background: var(--primary-green);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform 0.2s;
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.03);
+            filter: brightness(1.1);
+        }
+
+        /*--- SECTIONS (Bento Style) ---*/
+        .section-container {
+            padding: 140px 40px 40px 40px;
+        }
+
+        .bento-grid {
+            display: grid;
+            gap: 16px; /* Відступи між секціями як у промпті */
+        }
+
+        .hero-section {
+            background: #eee;
+            height: 500px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-canvas">
+        
+        <div class="header-wrapper">
+            <header>
+                <div class="logo">
+                    <img src="logo.png" alt="Revive Logo">
+                </div>
+
+                <nav>
+                    <ul>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Products ▾</a>
+                            <div class="dropdown">
+                                <a href="#">Revive Warrior</a>
+                                <a href="#">Revive Program</a>
+                                <a href="#">Compact Recycling Piston</a>
+                                <a href="#">Revive Live</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Global Representation ▾</a>
+                            <div class="dropdown">
+                                <a href="#">Ireland (HQ)</a>
+                                <a href="#">United Kingdom</a>
+                                <a href="#">New Zealand</a>
+                                <a href="#">Nordics</a>
+                                <a href="#">France</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Sustainability ▾</a>
+                            <div class="dropdown">
+                                <a href="#">Revive EcoPark</a>
+                                <a href="#">Green Credentials</a>
+                                <a href="#">Circular Economy</a>
+                                <a href="#">Decarbonising Zone</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link">Partners</a></li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">About Us ▾</a>
+                            <div class="dropdown">
+                                <a href="#">Our Story</a>
+                                <a href="#">Leadership Team</a>
+                                <a href="#">News</a>
+                                <a href="#">Press Releases</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link">Careers</a></li>
+                    </ul>
+                </nav>
+
+                <a href="#" class="cta-button">Contact Us →</a>
+            </header>
+        </div>
+
+        <main class="section-container">
+            <div class="bento-grid">
+                <section class="hero-section">
+                    <div>
+                        <h1 style="font-size: 48px; margin-bottom: 20px;">Engineering the Future</h1>
+                        <p style="font-size: 18px; opacity: 0.9;">Leading circular economy solutions for global infrastructure.</p>
+                    </div>
+                </section>
+                
+                </div>
+        </main>
+
+    </div>
+
+</body>
+</html>
